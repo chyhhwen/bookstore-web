@@ -1,0 +1,105 @@
+body
+{
+    margin:0px;
+    border:0px;
+}
+h1,h2,h3,h4,h5,h6
+{
+    margin:0%;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+input
+{
+    border:1px white solid;
+}
+a:hover
+{
+    color:#bb5a3a;
+}
+nav
+{
+    height: 70px; 
+    background: white;
+    position: sticky;
+    top:0;
+    font-weight:bold;
+    font-size:200%;
+    display: flex; 
+    align-items: center; 
+    border-bottom:1px solid rgb(202, 201, 201);
+}
+nav span
+{
+    padding-left:5%;
+    padding-right:60%;
+}
+nav a
+{
+    padding-left:1%;
+    padding-right:1%;
+    font-size:60%;
+    text-decoration:none;
+    color:black;
+}
+nav a:hover
+{
+    color:#bb5a3a;
+}
+
+.form
+{
+    margin-left: 5vw;
+    margin-top: 1vw;
+    width:90vw;
+    height:85vh;
+    border-radius:1em;
+    border:1px solid rgb(202, 201, 201);
+    background-image: url("../pic/cat1.jpg");
+    background-size: cover;
+    font-size:150%;
+}
+
+.input
+{
+    margin-left: 5vw;
+    margin-top: 1vw;
+    width:40%;
+    margin-left: 30%;
+    height:10vh;
+    border-radius:1em;
+    font-size: 140%;
+    display: flex;
+    color: aliceblue;
+}
+.input input
+{
+    width:75%;
+    height:80%;
+    font-size: 140%;
+    margin-left: 1vw;
+    border-radius:0.3em;
+}
+.input input[type="submit"]
+{
+    margin-left:40%;
+    width: 20%;
+    border-radius:1em;
+    font-size: 80%;
+    font-weight: bold;
+}
+.input input[type="submit"]:hover
+{
+    color:#bb5a3a;
+}
+footer
+{
+    margin-top:2vw;
+    margin-bottom:2vw;
+    width:98vw;
+    height:5vw;
+    text-align: center;
+}
