@@ -1,0 +1,6 @@
+{
+    "title":["登入","註冊"],
+    "input":["帳號","密碼","姓名","密碼","信箱","地址"],
+    "id":["username","password","name","password","gmail","access","check"],
+    "qu_id":["#username","#password","#name","#password","#gmail","#access"]
+}

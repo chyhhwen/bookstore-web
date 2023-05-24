@@ -1,0 +1,149 @@
+body
+{
+    margin:0px;
+    border:0px;
+}
+h1,h2,h3,h4,h5,h6
+{
+    margin:0%;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+a:hover
+{
+    color:#bb5a3a;
+}
+nav
+{
+    height: 70px; 
+    background: white;
+    position: sticky;
+    top:0;
+    font-weight:bold;
+    font-size:200%;
+    display: flex; 
+    align-items: center; 
+    border-bottom:1px solid rgb(202, 201, 201);
+}
+nav span
+{
+    padding-left:5%;
+    padding-right:65vw;
+}
+nav a
+{
+    padding-left:1%;
+    padding-right:1%;
+    font-size:60%;
+    text-decoration:none;
+    color:black;
+}
+nav a:hover
+{
+    color:#bb5a3a;
+}
+
+.state
+{
+    width:90vw;
+    height:15vh;
+    margin-top:1vw;
+    margin-left:5vw;
+    border-radius:0.5em;
+    background-color: white;
+    border:1px solid rgb(202, 201, 201);
+}
+.state .title
+{
+    width:98%;
+    margin:0.5%;
+    padding-left:1%;
+    height: 30%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+}
+.state .present
+{
+    width:98%;
+    margin:0.5%;
+    padding-left:1%;
+    height: 50%;
+    border-radius:0.5em;
+    display: flex;
+}
+.present .stage
+{
+    width:10%;
+    margin:0.5%;
+    margin-left:8%;
+    margin-top: 1%;
+    height: 50%;
+    border-radius:0.5em;
+}
+
+.list
+{
+    width:90vw;
+    margin-top:1vw;
+    margin-left:5vw;
+    border-radius:0.5em;
+    background-color: white;
+    border:1px solid rgb(202, 201, 201);
+}
+.list .title
+{
+    width:98%;
+    margin:0.5%;
+    padding-left:1%;
+    height: 8%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+}
+.list .item
+{
+    width:98%;
+    margin:0.5%;
+    padding-left:1%;
+    height: 20%;
+    border-radius:0.5em;
+    border:1px solid rgb(202, 201, 201);
+}
+
+.notice
+{
+    width:90vw;
+    height:60vh;
+    margin-top:1vw;
+    margin-left:5vw;
+    border-radius:0.5em;
+    background-color: white;
+    border:1px solid rgb(202, 201, 201);
+}
+.notice .title
+{
+    width:98%;
+    margin:0.5%;
+    padding-left:1%;
+    height: 8%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+}
+.notice .test
+{
+    width:98%;
+    margin:0.5%;
+    padding-left:1%;
+    height: 20vw;
+    border-radius:0.5em;
+}
+footer
+{
+    margin-top:2vw;
+    margin-bottom:2vw;
+    width:98vw;
+    height:5vw;
+    text-align: center;
+}

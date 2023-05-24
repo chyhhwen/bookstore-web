@@ -46,15 +46,16 @@ nav a:hover
     color:#bb5a3a;
 }
 
-.news
+#news
 {
     margin-left: 5vw;
     width:90vw;
     height:45vh;
     border-radius: 0 0 2em 2em;
+
 }
     
-.news img
+#news img
 {
     width:100%;
     height:100%;
@@ -88,7 +89,6 @@ nav a:hover
     margin:0.5%;
     height: 80%;
     border-radius:0.5em;
-    border:1px solid rgb(202, 201, 201);
     display: flex;
 }
 #books .book

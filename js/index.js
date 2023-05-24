@@ -1,3 +1,5 @@
+
+
 const view ={
     title:["書籍排行榜","中文書籍","英文書籍"],
     size:8,
@@ -14,8 +16,8 @@ const view ={
             {
                 book_item += "<div class=book>";
                 book_item += "<div class=pic></div>";
-                book_item += "<div class=price>$"+ (j*100) +"</div>";
-                book_item += "<div class=name>"+ "這是書名" +"</div>";
+                book_item += "<div class=price>$"+ null +"</div>";
+                book_item += "<div class=name>"+ "NULL" +"</div>";
                 book_item += "</div>";
             }
             book_item += "</div>";
