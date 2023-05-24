@@ -128,3 +128,89 @@ footer
     height:5vw;
     text-align: center;
 }
+#test
+{
+    position: fixed;
+    width:100vw;
+    height:90vh;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+#test .input
+{
+    width:50vw;
+    height:75vh;
+    margin-top:8vh;
+    margin-left:25vw;
+    border-radius:0.5em;
+    border:1px solid rgb(202, 201, 201);
+    background-color: white;
+}
+
+.input .title
+{
+    width:97%;
+    margin:0.5%;
+    padding-left:2%;
+    height: 8%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+    display: flex;
+}
+
+.title input[type="submit"]
+{
+    width: 5%;
+    background-color: rgb(202, 201, 201);
+    border:1px solid rgb(202, 201, 201);
+    margin-left: 85%;
+}
+
+#test .form
+{
+    width: 99%;
+    height: 90%;
+    margin:0.5%;
+}
+
+.form .put
+{
+    width:70%;
+    height: 10%;
+    margin-left:15%;
+    margin-top: 5%;
+    display: flex;
+}
+.put input
+{
+    width: 80%;
+    font-size: 160%;
+    border-radius:0.3em;
+}
+.put input[type="submit"]
+{
+    margin-left:40%;
+    width: 20%;
+    border-radius:1em;
+    font-size: 160%;
+    font-weight: bold;
+}
+.input input[type="submit"]:hover
+{
+    color:#bb5a3a;
+}
+.form .pic
+{
+    width:99%;
+    height: 45%;
+    margin-top: 2%;
+    border-radius:0.3em;
+}
+
+.pic img
+{
+    width:100%;
+    height:100%;
+    border-radius:0.3em;
+}
