@@ -1,5 +1,4 @@
 
-
 const view ={
     title:["書籍排行榜","中文書籍","英文書籍"],
     size:8,
@@ -29,27 +28,6 @@ const view ={
 /*const book={
 
 }*/
-/*const shop = {
-	list: {}, add: function (ID, Name, Price, Amount) {
-		if (this.list.hasOwnProperty(ID)) {
-			this.list[ID]["Amount"] += Amount;
-			this.list[ID]["Price"] = Price * this.list[ID]["Amount"];
-		} else {
-			shop.init(ID, Name, Price, Amount);
-		}
-	}, init: function (ID, Name, Price, Amount, overwrite = true) {
-		if (overwrite) this.list[ID] = {"Name": Name, "Price": Price, "Amount": Amount};
-	}, del: function (ID) {
-		delete this.list[ID];
-		showList();
-	}, total: () => {
-		let price = 0;
-		Object.entries(shop.list).forEach(([key, value]) => {
-			price += value["Price"];
-		});
-		return price;
-	}
-};*/
 window.onload =()=>
 {   
     view.show();

@@ -1,6 +1,10 @@
 {
     "title":["登入","註冊"],
     "input":["帳號","密碼","姓名","密碼","信箱","地址"],
+    "list":["1.確認明細","2.填寫資料","3.訂單確認","4.進行付款","5.完成訂購"],
+    "liname":["訂單明細","個人資料"],
+    "client":["姓名","地址"],
+    "pay":["姓名","卡號","日期","OTP"],
     "id":["username","password","name","password","gmail","access","check"],
     "qu_id":["#username","#password","#name","#password","#gmail","#access"]
 }

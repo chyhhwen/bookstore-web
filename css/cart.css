@@ -84,7 +84,7 @@ nav a:hover
     border-radius:0.5em;
 }
 
-.list
+#list
 {
     width:90vw;
     margin-top:1vw;
@@ -93,7 +93,7 @@ nav a:hover
     background-color: white;
     border:1px solid rgb(202, 201, 201);
 }
-.list .title
+#list #title
 {
     width:98%;
     margin:0.5%;
@@ -102,7 +102,29 @@ nav a:hover
     border-radius:0.5em;
     background-color: rgb(202, 201, 201);
 }
-.list .item
+#list #input
+{
+    display: flex;
+    margin-left:32vw;
+    width: 25vw;
+    margin-top: 1vh;
+}
+#input input[type="text"]
+{
+    width: 20vw;
+    font-size: 120%;
+    border-radius:1em;
+}
+#input input[type="submit"]
+{
+    margin-left:40%;
+    width: 20%;
+    border-radius:1em;
+    font-size: 160%;
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+#list #item
 {
     width:98%;
     margin:0.5%;
@@ -115,7 +137,6 @@ nav a:hover
 .notice
 {
     width:90vw;
-    height:60vh;
     margin-top:1vw;
     margin-left:5vw;
     border-radius:0.5em;
@@ -136,7 +157,6 @@ nav a:hover
     width:98%;
     margin:0.5%;
     padding-left:1%;
-    height: 20vw;
     border-radius:0.5em;
 }
 footer
