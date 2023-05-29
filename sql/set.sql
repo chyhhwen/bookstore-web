@@ -30,6 +30,7 @@ CREATE TABLE `book`
     name varchar(255) not null,
     price varchar(255) not null,
     amount varchar(255) not null,/*數量*/
+    language varchar(255) not null,
     time varchar(255) not null
 );
 CREATE TABLE `introduce` 
@@ -41,4 +42,3 @@ CREATE TABLE `introduce`
     relation varchar(255) not null,/*敘述*/
     time varchar(255) not null
 );
-

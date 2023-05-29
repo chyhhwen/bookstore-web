@@ -13,21 +13,35 @@
 	        $stmt = $pdo->prepare($sql);
 	        $stmt->execute();
 	        $array = array(array());
+            $check = false;
 	        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	        {
 	            $check_u = $row[$db['user_field'][2]];
                 $check_p = $row[$db['user_field'][3]];
                 if($check_u == $u && $check_p == k($p))
                 { 
-	                unset($pdo);
-                    setcookie("user",$u);
-                    set_s(['index',true]);
-                    ref([0,'index.php']);
+                    $check = true;
+                    if($check_u == $db['ad'])
+                    {
+	                    unset($pdo);
+                        setcookie("user",$u);
+                        ref([0,'admin.php']);
+                    }
+                    else
+                    {
+	                    unset($pdo);
+                        setcookie("user",$u);
+                        set_s(['index',true]);
+                        ref([0,'index.php']);
+                    }
                 }
 	        }
             unset($pdo);
-            setcookie("check","1");
-            ref([0,'index.php']);
+            if(!$check)
+            {   
+                //setcookie("check","1");
+                ref([0,'index.php']);
+            }   
         break;
         case 2:
             $n = p('name');

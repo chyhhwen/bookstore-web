@@ -2,6 +2,9 @@
     "db" : "bookstore",
     "dbname": "user",
     "dbname1": "client",
+    "dbname2": "book",
+    "dbname3": "introduce",
     "user_field":["id","uid","name","password"],
-    "client_field":["id","uid","name","password","gmail","access","time"]
+    "client_field":["id","uid","name","password","gmail","access","time"],
+    "ad":"admin"
 }
