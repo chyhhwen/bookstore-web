@@ -1,7 +1,6 @@
 <?php
 date_default_timezone_set('Asia/Taipei');
 session_start();
-
 $time = date('Y-m-d H:i:s');
 
 function conn($dbname)

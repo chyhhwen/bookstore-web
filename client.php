@@ -12,7 +12,6 @@
             $sql = "SELECT * FROM ". $db['dbname'] ."";
 	        $stmt = $pdo->prepare($sql);
 	        $stmt->execute();
-	        $array = array(array());
             $check = false;
 	        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	        {
@@ -31,7 +30,7 @@
                     {
 	                    unset($pdo);
                         setcookie("user",$u);
-                        set_s(['index',true]);
+                        set_s(['index',true,]);
                         ref([0,'index.php']);
                     }
                 }
@@ -39,9 +38,8 @@
             unset($pdo);
             if(!$check)
             {   
-                //setcookie("check","1");
                 ref([0,'index.php']);
-            }   
+            } 
         break;
         case 2:
             $n = p('name');
@@ -66,5 +64,4 @@
             ref([0,'error.php']);
         break;
     }
-    //echo "<script type='text/javascript'>alert('".p('check')."');</script>";
 ?>

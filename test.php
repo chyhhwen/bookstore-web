@@ -1,6 +1,6 @@
 <?php
     include "plugins.php";
-    if(@p('y'))
+    /*if(@p('y'))
     {
         $db='stonk';
         $data = ['', '1','2','3',$GLOBALS["time"]];
@@ -22,5 +22,6 @@
             <input type="submit" name="y">
             </form>
         ';
-    }
+    }*/
+    echo k('韓食飯桌');
 ?>

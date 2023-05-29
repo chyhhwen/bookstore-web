@@ -6,5 +6,10 @@
     "dbname3": "introduce",
     "user_field":["id","uid","name","password"],
     "client_field":["id","uid","name","password","gmail","access","time"],
+    "book_field":["id","bid","name","price","amount","language","time"],
+    "intro_field":["id","bid","writer","publisher","relation","time"],
+    "lan":["chinese","english"],
+    "url":"../bookstore/pic/",
+    "file":".png",
     "ad":"admin"
 }

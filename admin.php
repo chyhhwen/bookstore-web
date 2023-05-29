@@ -1,17 +1,16 @@
 <?php
     include "plugins.php";
     echo 
-    '
-    <html>
+    '<html>
     <head>
         <link rel="stylesheet" href="./css/admin.css">
         <script type=\'text/javascript\' src=\'./js/admin.js\'></script> 
         <meta charset="UTF-8">
-        <title>家佑好皮書店</title>
+        <title>桿哩鹽系統</title>
     </head>
     <body>
         <nav>
-            <span style=padding-right:70vw;>桿哩員</span>
+            <span style=padding-right:70vw;>桿哩鹽</span>
             <a href="javascript:reset(\'#test\')">首頁</a>
             <a href="javascript:put_view(\'#test\')">上架</a>
             <a href="javascript:register_view(\'#test\')">註冊</a>
