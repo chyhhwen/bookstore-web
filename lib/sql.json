@@ -1,0 +1,7 @@
+{
+    "db" : "bookstore",
+    "dbname": "user",
+    "dbname1": "client",
+    "user_field":["id","uid","name","password"],
+    "client_field":["id","uid","name","password","gmail","access","time"]
+}

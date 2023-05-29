@@ -1,4 +1,4 @@
-var requestURL = './fix.json';
+var requestURL = './lib/fix.json';
 var request = new XMLHttpRequest();
 var list = [];
 var liname = [];
