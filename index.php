@@ -117,7 +117,7 @@
                             </div>
                             <div class="form">
                                 <h2>'. $row[$db['book_field'][3]] .'</h2>
-                                <a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'"><h2>'. $row[$db['book_field'][2]] .'</h2></a>
+                                <a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0"><h2>'. $row[$db['book_field'][2]] .'</h2></a>
                             </div>
                         </div>
                     ';
@@ -180,7 +180,7 @@
                     {
                         echo'<div class="view">';
                     }
-                    $url = $db['url'] . $db['lan'][0] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                    $url = $db['url'] . $db['lan'][1] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
                     echo
                     '
                         <div class="book">
@@ -189,7 +189,7 @@
                             </div>
                             <div class="form">
                                 <h2>'. $row[$db['book_field'][3]] .'</h2>
-                                <a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'"><h2>'. $row[$db['book_field'][2]] .'</h2></a>
+                                <a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1"><h2>'. $row[$db['book_field'][2]] .'</h2></a>
                             </div>
                         </div>
                     ';
@@ -220,6 +220,7 @@
             break; 
             case "view":
                 $t = g('token');
+                $l = g('lan');
                 echo
                 '
                     <html>
@@ -259,7 +260,7 @@
                 unset($pdo); 
                 /*book*/
                 $pdo = conn($db['db']);
-                $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][0] ."\"";
+                $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][$l] ."\"";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
                 $url = "";
@@ -267,7 +268,7 @@
                 {
                     if($row[$db['book_field'][1]] == $t)
                     {
-                        $url = $db['url'] . $db['lan'][0] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                        $url = $db['url'] . $db['lan'][$l] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
                         echo'            
                             <div class="view_main">
                                 <div class="view_title">

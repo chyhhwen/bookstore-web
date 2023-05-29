@@ -23,5 +23,5 @@
             </form>
         ';
     }*/
-    echo k('韓食飯桌');
+    echo k('Spare');
 ?>
