@@ -274,3 +274,21 @@ footer
     padding-left:2%;
     border-radius:1em;
 }
+.text input[type="submit"]
+{
+    width: 11%;
+    height:11%;
+    border-radius:0.5em;
+    margin-top: 2%;
+    font-size:110%;
+    background-color: rgb(202, 201, 201);
+    border:1px solid rgb(202, 201, 201);
+}
+.text input[type="submit"]:hover
+{
+    color: #bb5a3a;
+    border-color: #bb5a3a;
+    width: 12%;
+    height:12%;
+    font-size:120%;
+}
