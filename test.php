@@ -23,5 +23,10 @@
             </form>
         ';
     }*/
-    echo k('Spare');
+    $data = file_get_contents( './lib/sql.json' );
+    $db = json_decode( $data, true );
+    $sql = "SELECT * FROM `". $db['dbname2'] ."`";
+    $rand = random(size($db['db'],$sql));
+    //v($rand);
+    //echo k('Spare');
 ?>

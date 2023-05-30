@@ -98,7 +98,35 @@ function select($dbname,$sql,$field)
 	}
 	unset($pdo);
 }
-
+function size($dbname,$sql)
+{
+	$pdo = conn($dbname);
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute();
+	$math = 0;
+    while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+	{
+		$math += 1;
+	}
+	return $math;
+}
+function random($num)
+{
+	for($i=0;$i<$num;$i++)
+	{
+		$n[$i] = $i;
+	}
+	for($i = 0;$i<$num;$i++)
+	{
+		$rand = mt_rand($i,$num-1);
+		if($n[$i] == $i)
+		{
+			$n[$i] = $n[$rand];
+			$n[$rand] = $i;
+		}
+	}
+	return $n;
+}
 function ref($a)
 {
 	header('refresh:'.$a[0].';url="'.$a[1].'"');

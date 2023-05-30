@@ -351,6 +351,21 @@
                 {
                     $title = ["書籍排行榜","中文書籍","英文書籍"];
                     $language = ["chinese","english"];
+                    $data = file_get_contents( './lib/sql.json' );
+                    $db = json_decode( $data, true );
+                    $sql="";
+                    switch($i)
+                    {
+                        case 0:
+                            $sql = "SELECT * FROM `". $db['dbname2'] ."`";
+                        break;   
+                        case 1:
+                            $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][0] ."\"";
+                        break;     
+                        case 2:
+                            $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][1] ."\"";
+                        break;        
+                    }
                     if($i==0)
                     {
                         echo
@@ -371,17 +386,51 @@
                             <div id=books>
                         ';
                     }
-                    for($j=0;$j<8;$j++)
+                    $pdo = conn($db['db']);
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+                    $j = 0;
+                    while($row = $stmt->fetch(PDO::FETCH_ASSOC))
                     {
-                        echo'
-                        <div class=book>
-                        <div class=pic></div>
-                        <div class=price>$null</div>
-                        <div class=name>NULL</div>
-                        </div>
-                        ';
-                    }
+                        if($j == 8)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            $url = $db['url'] . $db['view_lan'][$i] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                            echo
+                            '
+                                <div class=book>
+                                <div class=pic>
+                                    <img src="'. $url .'">
+                                </div>
+                                <div class=price>$'. $row[$db['book_field'][3]] .'</div>
+                                <div class=name>
+                            ';
+                            switch($i)
+                            {
+                                case 0:
+                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
+                                break;   
+                                case 1:
+                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
+                                break;     
+                                case 2:
+                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
+                                break;        
+                            }
+                            echo
+                            '    
+                                <h3>'. $row[$db['book_field'][2]] .'<h3>
+                                </div>
+                                </div>
+                            ';
+                        }
+                        $j += 1;
+                    }      
                     echo'</div></div>';
+                    unset($pdo);
                 }
                 echo
                 '
@@ -397,8 +446,16 @@
                         <span>營業人統一編號 123456789</span>
                     </footer>  
                     </body>
-                    </html>
                 ';
+                if(@g('check') == "0")
+                {
+                    echo'<script>alert(\'帳號密碼錯誤\'); </script>';
+                }
+                if(@g('check') == "1")
+                {
+                    echo'<script>alert(\'註冊成功\');</script>';
+                }
+                echo'</html>';
             break;
         }
     }   

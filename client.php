@@ -38,7 +38,7 @@
             unset($pdo);
             if(!$check)
             {   
-                ref([0,'index.php']);
+                ref([0,'index.php?check=0']);
             } 
         break;
         case 2:
@@ -58,7 +58,7 @@
             $sql = "INSERT INTO ". $db['dbname'] ." VALUES (?, ?, ?, ?)";
             add($db['db'],$db_data,$sql);
             setcookie("check","2");
-            ref([0,'index.php']);
+            ref([0,'index.php?check=1']);
         break;    
         default:
             ref([0,'error.php']);
