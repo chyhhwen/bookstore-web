@@ -11,7 +11,7 @@
 `js` js \
 `lib` json \
 `pic` 照片 \
-`sql` 資料庫 \
+`sql` 資料庫 
 ## 路由
 `index.php` 主頁 \
 `admin.php` 稈里鹽 \
@@ -20,7 +20,7 @@
 `book.php` 書籍 \
 `order.php` 清單 \
 `deliver.php` 付款 \
-`error.php` 錯誤\
+`error.php` 錯誤
 ### 家佑好皮
 
 
