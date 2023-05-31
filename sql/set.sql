@@ -54,7 +54,19 @@ CREATE TABLE `order`
 (
     id int AUTO_INCREMENT PRIMARY KEY, 
     oid varchar(255) not null,
-    name varchar(255) not null,
+    uid varchar(255) not null,
+    bid varchar(255) not null,
     amount varchar(255) not null,
     time varchar(255) not null
 );
+CREATE TABLE `deliver` 
+(
+    id int AUTO_INCREMENT PRIMARY KEY, 
+    oid varchar(255) not null,
+    uid varchar(255) not null,
+    name varchar(255) not null,
+    card varchar(255) not null,
+    access varchar(255) not null,
+    time varchar(255) not null
+);
+/*SELECT * FROM `order`,`book` WHERE `order`.`bid` = `book`.`bid`;*/

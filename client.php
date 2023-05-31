@@ -32,7 +32,14 @@
                     {
 	                    unset($pdo);
                         setcookie("user",$u);
+                        setcookie("token",$token);
                         set_s(['index',true,]);
+                        $o = k($GLOBALS["time"]);
+                        $db_data = ['',$token,$o,$GLOBALS["time"]];
+                        $sql = "INSERT INTO ". $db['dbname4'] ." VALUES (?, ?, ?, ?)";
+                        add($db['db'],$db_data,$sql);
+                        setcookie("order",$o);
+                        ref([0,'index.php']);
                     }
                 }
 	        }
@@ -41,13 +48,6 @@
             {   
                 ref([0,'index.php?check=0']);
             } 
-            else
-            {
-                $db_data = ['',$token,k($GLOBALS["time"]),$GLOBALS["time"]];
-                $sql = "INSERT INTO ". $db['dbname4'] ." VALUES (?, ?, ?, ?)";
-                add($db['db'],$db_data,$sql);
-                ref([0,'index.php']);
-            }
         break;
         case 2:
             $n = p('name');

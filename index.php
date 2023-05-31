@@ -25,28 +25,45 @@
                             <h2>目前階段</h2>
                         </div>
                 ';
+                $test = "test";
                 echo'<script>window.onload = () =>{';
+                $data = file_get_contents( './lib/sql.json' );
+                $db = json_decode( $data, true );
+                $pdo = conn($db['db']);
+                $sql = "SELECT * FROM `order`,`temp`,`book` WHERE `temp`.`bid`=`order`.`uid`AND`temp`.`oid`=`order`.`oid`AND`book`.`bid`=`order`.`bid`;";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
+                $id = 0;
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                {
+                    if($_COOKIE['order'] == $row[$db['order_field'][1]])
+                    {
+                        $book_name = $row[$db['order_field'][12]];
+                        $book_price = $row[$db['order_field'][13]];
+                        $order_amount = $row[$db['order_field'][4]];
+                        echo' shop.add("'.$id.'","'.$book_name.'","'.$book_price.'","'.$order_amount.'");';
+                    }
+                    $id += 1;
+                }  
+                unset($pdo);
                 switch(@g('stage')) 
                 {
                     case "1":
                         echo'details();';
                     break;
                     case "2":
-                        echo'write();';
-                    break;
-                    case "3":
                         echo'check();';
                     break;
-                    case "4":
+                    case "3":
                         echo'usepay();';
                     break;
-                    case "5":
+                    case "4":
                         echo'curret();';
                     break;
                     default:
                         echo'details();';
                     break;
-                }               
+                }              
                 echo'}</script>';    
                 echo
                 '                
@@ -57,23 +74,18 @@
                             </a>
                         </div>
                         <div class="stage">
-                            <a href="javascript:write()" id="two">
-                                <h3>2.填寫資料</h3>
-                            </a>
-                        </div>
-                        <div class="stage">
                             <a href="javascript:check()" id="three">
-                                <h3>3.訂單確認</h3>
+                                <h3>2.訂單確認</h3>
                             </a>
                         </div>
                         <div class="stage">
                             <a href="javascript:usepay()" id="four">
-                                <h3>4.進行付款</h3>
+                                <h3>3.進行付款</h3>
                             </a>
                         </div>
                         <div class="stage">
                             <a href="javascript:curret()" id="five">
-                                <h3>5.完成訂購</h3>
+                                <h3>4.完成訂購</h3>
                             </a>
                         </div>
                     </div>
@@ -324,7 +336,7 @@
                                         <h2>剩餘:'. $row[$db['book_field'][4]] .'</h2>
                                         <input type="hidden"  id="inputname" value="'. $row[$db['book_field'][2]] .'">
                                         <input type="hidden"  id="inputprice" value="'. round(intval($row[$db['book_field'][3]]) * 0.8) .'">
-                                        <input type="submit" onclick="" value="加入購物車">
+                                        <input type="submit" onclick="location.href=\'order.php?token='.$row[$db['book_field'][1]].'\'" value="加入購物車">
                                     </div>
                                 </div>
                             </div>
@@ -530,6 +542,10 @@
                     </footer>  
                     </body>
                 ';
+                if(@g('check') == "1")
+                {
+                    echo'<script>alert(\'新增成功\');</script>';
+                }
                 echo'</html>';
             break;
         }
