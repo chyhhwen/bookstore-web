@@ -45,7 +45,7 @@ function delete($dbname,$sql)
 	{
     	if ($sth->execute()) 
 		{
-        	echo 'curret';
+			
     	} 
 		else 
 		{

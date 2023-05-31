@@ -7,8 +7,8 @@ const shop = {
     {
 		if (this.list.hasOwnProperty(ID)) 
         {
-			this.list[ID]["Amount"] += Amount;
-			this.list[ID]["Price"] = Price * this.list[ID]["Amount"];
+			this.list[ID]["Amount"] = parseInt(this.list[ID]["Amount"]) + parseInt(Amount);
+			this.list[ID]["Price"] = parseInt(Price) * parseInt(this.list[ID]["Amount"]);
 		} 
         else 
         {
@@ -22,6 +22,8 @@ const shop = {
     del: function (ID) 
     {
 		delete this.list[ID];
+        var url = "order.php?del=1&token=" + ID;
+        location.href=url;
 	}, 
     total: () => 
     {
@@ -41,6 +43,7 @@ const shop = {
 delItem = (key) =>
 {
 	shop.del(key);
+    details();
 }
 
 /**
@@ -113,7 +116,6 @@ check = () =>
         view += "<div id=item>";
         view += "<h2>"+value["Name"]+" ";
         view += "  $"+value["Price"]+"</h2></div>";
-        //view += "<div onclick='delItem(\"" + key + "\")'>X</div>";
 	});
     view += "<div id=item>";
         view += "<h2>總金額:";
@@ -132,9 +134,9 @@ details = () =>
     {
         
         view += "<div id=item>";
-        view += "<h2>"+value["Name"]+" ";
+        view += "<div class=text><h2>"+value["Name"]+" ";
         view += "  $"+value["Price"]+"</h2></div>";
-        //view += "<div onclick='delItem(\"" + key + "\")'>X</div>";
+        view += "<div class=del><a href='javascript:delItem(\"" + key + "\")'><h2>X</h2></a></div></div>";
 	});
     view += "<div id=input>";
     view += "<input type=submit value=確認 ";

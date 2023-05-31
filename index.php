@@ -33,17 +33,16 @@
                 $sql = "SELECT * FROM `order`,`temp`,`book` WHERE `temp`.`bid`=`order`.`uid`AND`temp`.`oid`=`order`.`oid`AND`book`.`bid`=`order`.`bid`;";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
-                $id = 0;
                 while($row = $stmt->fetch(PDO::FETCH_ASSOC))
                 {
                     if($_COOKIE['order'] == $row[$db['order_field'][1]])
                     {
+                        $id = $row[$db['order_field'][3]];
                         $book_name = $row[$db['order_field'][12]];
                         $book_price = $row[$db['order_field'][13]];
-                        $order_amount = $row[$db['order_field'][4]];
+                        $order_amount = 1;
                         echo' shop.add("'.$id.'","'.$book_name.'","'.$book_price.'","'.$order_amount.'");';
                     }
-                    $id += 1;
                 }  
                 unset($pdo);
                 switch(@g('stage')) 
@@ -138,7 +137,7 @@
                     </head>
                     <body>
                     <nav>
-                        <span style="padding-right:65vw;">'. $_COOKIE["user"] .'</span>
+                        <span style="padding-right:75vw;">'. $_COOKIE["user"] .'</span>
                         <a href="index.php">首頁</a>
                         <a href="index.php?page=cart">購物車</a>
                     </nav>
@@ -209,7 +208,7 @@
                     </head>
                     <body>
                     <nav>
-                        <span style="padding-right:65vw;">'. $_COOKIE["user"] .'</span>
+                        <span style="padding-right:75vw;">'. $_COOKIE["user"] .'</span>
                         <a href="index.php">首頁</a>
                         <a href="index.php?page=cart">購物車</a>
                     </nav>
@@ -565,10 +564,8 @@
                     </head>
                     <body>
                     <nav>
-                        <span style="padding-right:65vw;">好皮</span>
+                        <span style="padding-right:75vw;">好皮</span>
                         <a href="index.php">首頁</a>
-                        <a href="javascript:login_view(\'#test\')">登入</a>
-                        <a href="javascript:register_view(\'#test\')">註冊</a>
                         <a href="javascript:alert(\'請先登入\')">購物車</a>
                     </nav>
                 ';      
@@ -637,10 +634,8 @@
                     </head>
                     <body>
                     <nav>
-                        <span style="padding-right:65vw;">好皮</span>
+                        <span style="padding-right:75vw;">好皮</span>
                         <a href="index.php">首頁</a>
-                        <a href="javascript:login_view(\'#test\')">登入</a>
-                        <a href="javascript:register_view(\'#test\')">註冊</a>
                         <a href="javascript:alert(\'請先登入\')">購物車</a>
                     </nav>
                 ';      
@@ -711,10 +706,8 @@
                     </head>
                     <body>
                         <nav>
-                            <span style="padding-right:65vw;">好皮</span>
+                            <span style="padding-right:75vw;">好皮</span>
                             <a href="index.php">首頁</a>
-                            <a href="javascript:login_view(\'#test\')">登入</a>
-                            <a href="javascript:register_view(\'#test\')">註冊</a>
                             <a href="javascript:alert(\'請先登入\')">購物車</a>
                         </nav>
                 ';

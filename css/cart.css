@@ -126,6 +126,7 @@ nav a:hover
 }
 #list #item
 {
+    display: flex;
     width:98%;
     margin:0.5%;
     padding-left:1%;
@@ -133,7 +134,14 @@ nav a:hover
     border-radius:0.5em;
     border:1px solid rgb(202, 201, 201);
 }
-
+#item .text
+{
+    padding-right: 1vw;
+}
+#item .del
+{
+    padding-top: 0.1%;
+}
 .notice
 {
     width:90vw;
