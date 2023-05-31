@@ -120,6 +120,7 @@
                     <html>
                     <head>
                         <link rel="stylesheet" href="./css/shop.css"> 
+                        <script type=\'text/javascript\' src=\'./js/cart.js\'></script> 
                         <meta charset="UTF-8">
                         <title>家佑好皮書店</title>
                     </head>
@@ -190,6 +191,7 @@
                     <html>
                     <head>
                         <link rel="stylesheet" href="./css/shop.css"> 
+                        <script type=\'text/javascript\' src=\'./js/cart.js\'></script> 
                         <meta charset="UTF-8">
                         <title>家佑好皮書店</title>
                     </head>
@@ -322,7 +324,7 @@
                                         <h2>剩餘:'. $row[$db['book_field'][4]] .'</h2>
                                         <input type="hidden"  id="inputname" value="'. $row[$db['book_field'][2]] .'">
                                         <input type="hidden"  id="inputprice" value="'. round(intval($row[$db['book_field'][3]]) * 0.8) .'">
-                                        <input type="submit" onclick="addItem(\'#inputname\', \'#inputprice\', \''. $row[$db['book_field'][1]] .'\')" value="加入購物車">
+                                        <input type="submit" onclick="" value="加入購物車">
                                     </div>
                                 </div>
                             </div>
@@ -367,6 +369,7 @@
                 <head>
                     <link rel="stylesheet" href="./css/index.css">
                     <script type=\'text/javascript\' src=\'./js/client.js\'></script> 
+                    <script type=\'text/javascript\' src=\'./js/cart.js\'></script> 
                     <meta charset="UTF-8">
                     <title>家佑好皮書店</title>
                 </head>
@@ -381,91 +384,136 @@
                     <div id="news">
                         <img src="./pic/cat.jpg">
                     </div>';
-                echo'<div id ="view_box">';
-                for($i=0;$i<3;$i++)
-                {
-                    $title = ["書籍排行榜","中文書籍","英文書籍"];
-                    $language = ["chinese","english"];
-                    $data = file_get_contents( './lib/sql.json' );
-                    $db = json_decode( $data, true );
-                    $sql="";
-                    switch($i)
+                    echo'<div id ="view_box">';
+                    for($i=0;$i<3;$i++)
                     {
-                        case 0:
-                            $sql = "SELECT * FROM `". $db['dbname2'] ."`";
-                        break;   
-                        case 1:
-                            $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][0] ."\"";
-                        break;     
-                        case 2:
-                            $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][1] ."\"";
-                        break;        
-                    }
-                    if($i==0)
-                    {
-                        echo
-                        '
-                            <div id=view>
-                            <div class=title>
-                            <h2 style=color:black;>'. $title[$i] .'</h2></div>
-                            <div id=books>
-                        ';
-                    }
-                    else
-                    {
-                        echo
-                        '
-                            <div id=view>
-                            <div class=title>
-                            <a href="index.php?page='. $language[$i-1] .'"><h2>'. $title[$i] .'</h2></div></a>
-                            <div id=books>
-                        ';
-                    }
-                    $pdo = conn($db['db']);
-                    $stmt = $pdo->prepare($sql);
-                    $stmt->execute();
-                    $j = 0;
-                    while($row = $stmt->fetch(PDO::FETCH_ASSOC))
-                    {
-                        if($j == 8)
+                        $title = ["推薦書籍","中文書籍","英文書籍"];
+                        $language = ["chinese","english"];
+                        $data = file_get_contents( './lib/sql.json' );
+                        $db = json_decode( $data, true );
+                        $sql="";
+                        switch($i)
                         {
-                            break;
+                            case 0:
+                                $sql = "SELECT * FROM `". $db['dbname2'] ."`";
+                            break;   
+                            case 1:
+                                $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][0] ."\"";
+                            break;     
+                            case 2:
+                                $sql = "SELECT * FROM `". $db['dbname2'] ."` WHERE `language` = \"". $db['lan'][1] ."\"";
+                            break;        
+                        }
+                        if($i==0)
+                        {
+                            echo
+                            '
+                                <div id=view>
+                                <div class=title>
+                                <h2 style=color:black;>'. $title[$i] .'</h2></div>
+                                <div id=books>
+                            ';
                         }
                         else
                         {
-                            $url = $db['url'] . $db['view_lan'][$i] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
                             echo
                             '
-                                <div class=book>
-                                <div class=pic>
-                                    <img src="'. $url .'">
-                                </div>
-                                <div class=price>$'. $row[$db['book_field'][3]] .'</div>
-                                <div class=name>
-                            ';
-                            switch($i)
-                            {
-                                case 0:
-                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
-                                break;   
-                                case 1:
-                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
-                                break;     
-                                case 2:
-                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
-                                break;        
-                            }
-                            echo
-                            '    
-                                <h3>'. $row[$db['book_field'][2]] .'<h3>
-                                </div>
-                                </div>
+                                <div id=view>
+                                <div class=title>
+                                <a href="index.php?page='. $language[$i-1] .'"><h2>'. $title[$i] .'</h2></div></a>
+                                <div id=books>
                             ';
                         }
-                        $j += 1;
-                    }      
-                    echo'</div></div>';
-                    unset($pdo);
+                        $size = size($db['db'],$sql);
+                        $arr = random($size);
+                        $fianl_arr = [];
+                        for($k = 0;$k < 8;$k++)
+                        {
+                            $fianl_arr[$k] = $arr[$k];
+                        }
+                        sort($fianl_arr);
+                        $pdo = conn($db['db']);
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute();
+                        $j = 0;
+                        $k = 0;
+                        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+                        {
+                            if($i == 0)
+                            {
+                                if($k == 8)
+                                {
+                                    break;
+                                }
+                                if($j == $fianl_arr[$k])
+                                {
+                                    $url = $db['url'] . $row[$db['book_field'][5]] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                                    echo
+                                    '
+                                        <div class=book>
+                                        <div class=pic>
+                                            <img src="'. $url .'">
+                                        </div>
+                                        <div class=price>$'. $row[$db['book_field'][3]] .'</div>
+                                        <div class=name>
+                                    ';
+                                    if($row[$db['book_field'][5]] == $db['lan'][0])
+                                    {
+                                        echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
+                                    }
+                                    else
+                                    {
+                                        echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
+                                    }
+                                    echo
+                                    '    
+                                        <h3>'. $row[$db['book_field'][2]] .'<h3>
+                                        </div>
+                                        </div>
+                                    ';
+                                    $k += 1;
+                                }
+                                $j += 1;
+                            }
+                            else
+                            {
+                                if($j == 8)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    $url = $db['url'] . $row[$db['book_field'][5]] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                                    echo
+                                    '
+                                        <div class=book>
+                                        <div class=pic>
+                                            <img src="'. $url .'">
+                                        </div>
+                                        <div class=price>$'. $row[$db['book_field'][3]] .'</div>
+                                        <div class=name>
+                                    ';
+                                    switch($i)
+                                    {
+                                        case 1:
+                                            echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
+                                        break;     
+                                        case 2:
+                                            echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
+                                        break;        
+                                    }
+                                    echo
+                                    '    
+                                        <h3>'. $row[$db['book_field'][2]] .'<h3>
+                                        </div>
+                                        </div>
+                                    ';
+                                }
+                                $j += 1;
+                            }
+                        }      
+                        echo'</div></div>';
+                        unset($pdo);
                 }
                 echo
                 '
@@ -764,7 +812,7 @@
                 echo'<div id ="view_box">';
                 for($i=0;$i<3;$i++)
                 {
-                    $title = ["書籍排行榜","中文書籍","英文書籍"];
+                    $title = ["推薦書籍","中文書籍","英文書籍"];
                     $language = ["chinese","english"];
                     $data = file_get_contents( './lib/sql.json' );
                     $db = json_decode( $data, true );
@@ -801,48 +849,93 @@
                             <div id=books>
                         ';
                     }
+                    $size = size($db['db'],$sql);
+                    $arr = random($size);
+                    $fianl_arr = [];
+                    for($k = 0;$k < 8;$k++)
+                    {
+                        $fianl_arr[$k] = $arr[$k];
+                    }
+                    sort($fianl_arr);
                     $pdo = conn($db['db']);
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute();
                     $j = 0;
+                    $k = 0;
                     while($row = $stmt->fetch(PDO::FETCH_ASSOC))
                     {
-                        if($j == 8)
+                        if($i == 0)
                         {
-                            break;
+                            if($k == 8)
+                            {
+                                break;
+                            }
+                            if($j == $fianl_arr[$k])
+                            {
+                                $url = $db['url'] . $row[$db['book_field'][5]] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                                echo
+                                '
+                                    <div class=book>
+                                    <div class=pic>
+                                        <img src="'. $url .'">
+                                    </div>
+                                    <div class=price>$'. $row[$db['book_field'][3]] .'</div>
+                                    <div class=name>
+                                ';
+                                if($row[$db['book_field'][5]] == $db['lan'][0])
+                                {
+                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
+                                }
+                                else
+                                {
+                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
+                                }
+                                echo
+                                '    
+                                    <h3>'. $row[$db['book_field'][2]] .'<h3>
+                                    </div>
+                                    </div>
+                                ';
+                                $k += 1;
+                            }
+                            $j += 1;
                         }
                         else
                         {
-                            $url = $db['url'] . $db['view_lan'][$i] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
-                            echo
-                            '
-                                <div class=book>
-                                <div class=pic>
-                                    <img src="'. $url .'">
-                                </div>
-                                <div class=price>$'. $row[$db['book_field'][3]] .'</div>
-                                <div class=name>
-                            ';
-                            switch($i)
+                            if($j == 8)
                             {
-                                case 0:
-                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
-                                break;   
-                                case 1:
-                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
-                                break;     
-                                case 2:
-                                    echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
-                                break;        
+                                break;
                             }
-                            echo
-                            '    
-                                <h3>'. $row[$db['book_field'][2]] .'<h3>
-                                </div>
-                                </div>
-                            ';
+                            else
+                            {
+                                $url = $db['url'] . $row[$db['book_field'][5]] . "/" . k($row[$db['book_field'][2]]) . $db['file'];
+                                echo
+                                '
+                                    <div class=book>
+                                    <div class=pic>
+                                        <img src="'. $url .'">
+                                    </div>
+                                    <div class=price>$'. $row[$db['book_field'][3]] .'</div>
+                                    <div class=name>
+                                ';
+                                switch($i)
+                                {
+                                    case 1:
+                                        echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=0">';
+                                    break;     
+                                    case 2:
+                                        echo'<a href="index.php?page=view&token='. $row[$db['book_field'][1]] .'&lan=1">';
+                                    break;        
+                                }
+                                echo
+                                '    
+                                    <h3>'. $row[$db['book_field'][2]] .'<h3>
+                                    </div>
+                                    </div>
+                                ';
+                            }
+                            $j += 1;
                         }
-                        $j += 1;
                     }      
                     echo'</div></div>';
                     unset($pdo);

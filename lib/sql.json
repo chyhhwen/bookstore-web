@@ -4,6 +4,7 @@
     "dbname1": "client",
     "dbname2": "book",
     "dbname3": "introduce",
+    "dbname4": "temp",
     "user_field":["id","uid","name","password"],
     "client_field":["id","uid","name","password","gmail","access","time"],
     "book_field":["id","bid","name","price","amount","language","time"],

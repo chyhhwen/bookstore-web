@@ -29,7 +29,7 @@ CREATE TABLE `book`
     bid varchar(255) not null,
     name varchar(255) not null,
     price varchar(255) not null,
-    amount varchar(255) not null,/*數量*/
+    amount varchar(255) not null,
     language varchar(255) not null,
     time varchar(255) not null
 );
@@ -37,8 +37,24 @@ CREATE TABLE `introduce`
 (
     id int AUTO_INCREMENT PRIMARY KEY, 
     bid varchar(255) not null,
-    writer varchar(255) not null,/*作者*/
+    writer varchar(255) not null,
     publisher varchar(255) not null,/*出版商*/
     relation varchar(255) not null,/*敘述*/
+    time varchar(255) not null
+);
+/*oid*/
+CREATE TABLE `temp` 
+(
+    id int AUTO_INCREMENT PRIMARY KEY, 
+    bid varchar(255) not null,
+    oid varchar(255) not null,
+    time varchar(255) not null
+);
+CREATE TABLE `order` 
+(
+    id int AUTO_INCREMENT PRIMARY KEY, 
+    oid varchar(255) not null,
+    name varchar(255) not null,
+    amount varchar(255) not null,
     time varchar(255) not null
 );

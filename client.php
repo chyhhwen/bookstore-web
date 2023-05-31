@@ -13,12 +13,14 @@
 	        $stmt = $pdo->prepare($sql);
 	        $stmt->execute();
             $check = false;
+            $token = "";
 	        while($row = $stmt->fetch(PDO::FETCH_ASSOC))
 	        {
 	            $check_u = $row[$db['user_field'][2]];
                 $check_p = $row[$db['user_field'][3]];
                 if($check_u == $u && $check_p == k($p))
                 { 
+                    $token = $row[$db['user_field'][1]];
                     $check = true;
                     if($check_u == $db['ad'])
                     {
@@ -31,7 +33,6 @@
 	                    unset($pdo);
                         setcookie("user",$u);
                         set_s(['index',true,]);
-                        ref([0,'index.php']);
                     }
                 }
 	        }
@@ -40,6 +41,13 @@
             {   
                 ref([0,'index.php?check=0']);
             } 
+            else
+            {
+                $db_data = ['',$token,k($GLOBALS["time"]),$GLOBALS["time"]];
+                $sql = "INSERT INTO ". $db['dbname4'] ." VALUES (?, ?, ?, ?)";
+                add($db['db'],$db_data,$sql);
+                ref([0,'index.php']);
+            }
         break;
         case 2:
             $n = p('name');
