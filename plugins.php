@@ -7,7 +7,8 @@ function conn($dbname)
 {
 	try 
 	{
-		$pdo = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",'root','');
+		$var = require "require.php";
+		$pdo = new PDO("mysql:host=localhost;dbname=$dbname;charset=utf8",$var['user'],$var['pass']);
 	} 
 	catch (PDOException $e) 
 	{
