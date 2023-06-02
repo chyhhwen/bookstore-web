@@ -252,6 +252,7 @@ footer
     border-radius:0.5em;
     display: flex;
 }
+
 .view_body .pic
 {
     width:30%;
@@ -291,4 +292,28 @@ footer
     width: 12%;
     height:12%;
     font-size:120%;
+}
+.text button[type="button"]
+{
+    width: 5%;
+    height:10%;
+    border-radius:0.5em;
+    font-size:150%;
+    background-color: rgb(202, 201, 201);
+    border:1px solid rgb(202, 201, 201);
+}
+.text button[type="button"]:hover
+{
+    color: #bb5a3a;
+    border-color: #bb5a3a;
+    width: 6%;
+    height:11%;
+    font-size:160%;
+}
+#amount
+{
+    width: 5%;
+    height:10%;
+    border-radius:0.5em;
+    font-size:150%;
 }

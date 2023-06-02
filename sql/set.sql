@@ -56,7 +56,7 @@ CREATE TABLE `order`
     oid varchar(255) not null,
     uid varchar(255) not null,
     bid varchar(255) not null,
-    amount varchar(255) not null,
+    drop_amount varchar(255) not null,
     time varchar(255) not null
 );
 CREATE TABLE `deliver` 

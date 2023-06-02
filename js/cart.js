@@ -8,7 +8,6 @@ const shop = {
 		if (this.list.hasOwnProperty(ID)) 
         {
 			this.list[ID]["Amount"] = parseInt(this.list[ID]["Amount"]) + parseInt(Amount);
-			this.list[ID]["Price"] = parseInt(Price) * parseInt(this.list[ID]["Amount"]);
 		} 
         else 
         {
@@ -30,7 +29,7 @@ const shop = {
 		let price = 0;
 		Object.entries(shop.list).forEach(([key, value]) => 
         {
-			price += parseInt(value["Price"]);
+			price += (parseInt(value["Price"]) * parseInt(value["Amount"]));
 		});
 		return price;
 	}
@@ -114,8 +113,9 @@ check = () =>
     {
         
         view += "<div id=item>";
-        view += "<h2>"+value["Name"]+" ";
-        view += "  $"+value["Price"]+"</h2></div>";
+        view += "<h2>書名:"+value["Name"]+" ";
+        view +=" 數量:"+ value["Amount"];
+        view += " 金額:$"+(value["Price"] * value["Amount"]) +"</h2></div>"
 	});
     view += "<div id=item>";
         view += "<h2>總金額:";
@@ -134,8 +134,9 @@ details = () =>
     {
         
         view += "<div id=item>";
-        view += "<div class=text><h2>"+value["Name"]+" ";
-        view += "  $"+value["Price"]+"</h2></div>";
+        view += "<div class=text><h2>書名:"+value["Name"]+" ";
+        view +=" 數量:"+ value["Amount"];
+        view += " 金額:$"+(value["Price"] * value["Amount"]) +"</h2></div>";
         view += "<div class=del><a href='javascript:delItem(\"" + key + "\")'><h2>X</h2></a></div></div>";
 	});
     view += "<div id=input>";
@@ -143,6 +144,30 @@ details = () =>
     view +=  "onclick=\"location.href=\'index.php?page=cart&stage=2\'\"></div>";
     document.getElementById('list').innerHTML = view;
 }
+add = (max) =>
+{
+    let amount_el = document.querySelector("#amount");
+	let amount = amount_el.value;
+    if((parseInt(amount) + 1) > max)
+    {
+        alert("所需數量超出庫存");
+    }
+    else
+    {
+        amount_el.value = String(parseInt(amount) + 1);
+    }
+}
 
-
-
+sub = () =>
+{
+    let amount_el = document.querySelector("#amount");
+	let amount = amount_el.value;
+    if((parseInt(amount) - 1) == 0)
+    {
+        alert("最低購買為1本");
+    }
+    else
+    {
+        amount_el.value = String(parseInt(amount) - 1);
+    }
+}

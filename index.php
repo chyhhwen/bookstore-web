@@ -40,8 +40,9 @@
                         $id = $row[$db['order_field'][3]];
                         $book_name = $row[$db['order_field'][12]];
                         $book_price = $row[$db['order_field'][13]];
-                        $order_amount = 1;
+                        $order_amount = $row[$db['order_field'][4]];
                         echo' shop.add("'.$id.'","'.$book_name.'","'.$book_price.'","'.$order_amount.'");';
+                    
                     }
                 }  
                 unset($pdo);
@@ -333,9 +334,15 @@
                                         <h2>定價:$'. round(intval($row[$db['book_field'][3]]) * 0.8) .'</h2>
                                         <h2>語言:'. $row[$db['book_field'][5]] .'</h2>
                                         <h2>剩餘:'. $row[$db['book_field'][4]] .'</h2>
-                                        <input type="hidden"  id="inputname" value="'. $row[$db['book_field'][2]] .'">
-                                        <input type="hidden"  id="inputprice" value="'. round(intval($row[$db['book_field'][3]]) * 0.8) .'">
-                                        <input type="submit" onclick="location.href=\'order.php?token='.$row[$db['book_field'][1]].'\'" value="加入購物車">
+                                        <form action="order.php" method="POST">
+                                        <br>
+                                        <button type="button" onclick="javascript:add('. $row[$db['book_field'][4]] .')">+</button>
+                                        <input tybe="text" name="amount" value="1" id="amount">
+                                        <button type="button" onclick="javascript:sub()">-</button>
+                                        <br>
+                                            <input type="hidden"  name="bid" value="'. $row[$db['book_field'][1]] .'">                     
+                                            <input type="submit"  value="加入購物車">
+                                        </form>
                                     </div>
                                 </div>
                             </div>
