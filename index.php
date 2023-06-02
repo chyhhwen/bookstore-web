@@ -41,7 +41,8 @@
                         $book_name = $row[$db['order_field'][12]];
                         $book_price = $row[$db['order_field'][13]];
                         $order_amount = $row[$db['order_field'][4]];
-                        echo' shop.add("'.$id.'","'.$book_name.'","'.$book_price.'","'.$order_amount.'");';
+                        $max_amount = $row[$db['order_field'][14]];
+                        echo' shop.add("'.$id.'","'.$book_name.'","'.$book_price.'","'.$order_amount.'","'. $max_amount.'");';
                     
                     }
                 }  

@@ -10,6 +10,19 @@
         delete($db['db'],$sql);
         ref([0,'index.php?page=cart&stage=1']);
     }
+    if(@g('upgrape') == "1")
+    {
+        $data = file_get_contents( './lib/sql.json' );
+        $db = json_decode( $data, true );
+        $amount = g('amount');
+        $o = $_COOKIE['order'];
+        $bid = g('bid');
+        $sql ="UPDATE `order` SET `drop_amount` = ? WHERE `bid` = \"". $bid ."\" AND `oid` = \"". $o ."\"";
+        echo $sql;
+        $db_data = [$amount];
+        fix($db['db'], $db_data,$sql);
+        ref([0,'index.php?page=cart']);
+    }
     else
     { 
         $data = file_get_contents( './lib/sql.json' );

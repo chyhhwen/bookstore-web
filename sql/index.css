@@ -1,0 +1,319 @@
+body
+{
+    margin:0px;
+    border:0px;
+}
+h1,h2,h3,h4,h5,h6
+{
+    margin:0%;
+}
+a
+{
+    text-decoration: none;
+    color: black;
+}
+a:hover
+{
+    color:#bb5a3a;
+}
+nav
+{
+    height: 70px; 
+    background: white;
+    position: sticky;
+    top:0;
+    font-weight:bold;
+    font-size:200%;
+    display: flex; 
+    align-items: center; 
+    border-bottom:1px solid rgb(202, 201, 201);
+}
+nav span
+{
+    padding-left:5%;
+    padding-right:60%;
+}
+nav a
+{
+    padding-left:1%;
+    padding-right:1%;
+    font-size:60%;
+    text-decoration:none;
+    color:black;
+}
+nav a:hover
+{
+    color:#bb5a3a;
+}
+
+#news
+{
+    margin-left: 5vw;
+    width:90vw;
+    height:45vh;
+    border-radius: 0 0 2em 2em;
+
+}
+    
+#news img
+{
+    width:100%;
+    height:100%;
+    border-radius: 0 0 2em 2em;
+}
+
+#view
+{
+    margin-left: 5vw;
+    margin-top: 1vw;
+    width:90vw;
+    height:35vh;
+    border-radius:1em;
+    border:1px solid rgb(202, 201, 201);
+    color: #4169e1;
+}
+
+#view .title
+{
+    width:97%;
+    margin:0.5%;
+    padding-left:2%;
+    height: 12%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+}
+
+#books
+{
+    width:99%;
+    margin:0.5%;
+    height: 80%;
+    border-radius:0.5em;
+    display: flex;
+}
+#books .book
+{
+    width:12%;
+    margin:0.5%;
+    height: 93%;
+    border-radius:0.5em;
+    border:1px solid rgb(202, 201, 201);
+}
+.book .pic
+{
+    width: 100%;
+    height: 60%;
+    border-radius:0.5em;
+    background-color: bisque;
+}
+.pic img
+{
+    width:100%;
+    height:100%;
+    border-radius:1em;
+}
+.book .price
+{
+    width: 100%;
+    height: 15%;
+    color: red;
+    font-size: 120%;
+}
+.book .name
+{
+    width: 100%;
+    height: 25%;
+    color: black;
+}
+footer
+{
+    margin-top:2vw;
+    margin-bottom:2vw;
+    width:98vw;
+    height:5vw;
+    text-align: center;
+}
+#test
+{
+    position: fixed;
+    width:100vw;
+    height:90vh;
+    backdrop-filter: blur(5px);
+    display: none;
+}
+
+#test .input
+{
+    width:50vw;
+    height:75vh;
+    margin-top:6vh;
+    margin-left:25vw;
+    border-radius:0.5em;
+    border:1px solid rgb(202, 201, 201);
+    background-color: white;
+}
+
+.input .title
+{
+    width:97%;
+    margin:0.5%;
+    padding-left:2%;
+    height: 8%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+    display: flex;
+}
+
+.title input[type="submit"]
+{
+    width: 5%;
+    background-color: rgb(202, 201, 201);
+    border:1px solid rgb(202, 201, 201);
+    margin-left: 85%;
+}
+.title input[type="hidden"]
+{
+    width: 0%;
+    height: 0%;
+}
+#test .form
+{
+    width: 99%;
+    height: 90%;
+    margin:0.5%;
+}
+
+.form .put
+{
+    width:70%;
+    height: 10%;
+    margin-left:15%;
+    margin-top: 5%;
+    display: flex;
+}
+.put input
+{
+    width: 80%;
+    font-size: 160%;
+    border-radius:0.3em;
+}
+.put input[type="submit"]
+{
+    margin-left:40%;
+    width: 20%;
+    border-radius:1em;
+    font-size: 160%;
+    font-weight: bold;
+}
+.input input[type="submit"]:hover
+{
+    color:#bb5a3a;
+}
+.form .pic
+{
+    width:99%;
+    height: 45%;
+    margin-top: 2%;
+    border-radius:0.3em;
+}
+
+.pic img
+{
+    width:100%;
+    height:100%;
+    border-radius:0.3em;
+}
+
+.view_main
+{
+    width: 90vw;
+    height: 60vh;
+    margin-left: 5%;
+    margin-top:1.5vh;
+    border-radius:1em;
+    border:1px solid rgb(202, 201, 201);
+}
+
+.view_main .view_title
+{
+    
+    width:97%;
+    margin:0.5%;
+    padding-left:2%;
+    height: 9%;
+    border-radius:0.5em;
+    background-color: rgb(202, 201, 201);
+}
+.view_main .view_body
+{
+    width:97%;
+    margin:0.5%;
+    height: 88%;
+    border-radius:0.5em;
+    display: flex;
+}
+
+.view_body .pic
+{
+    width:30%;
+    height: 100%;
+    border-radius:0.5em;
+}
+.view_body .text
+{
+    width:70%;
+    height: 80%;
+    margin-top:3%;
+    border-radius:0.5em;
+}
+
+.view_body .relation
+{
+    margin-top:3%;
+    width: 100%;
+    height: 90%;
+    padding-left:2%;
+    border-radius:1em;
+}
+.text input[type="submit"]
+{
+    width: 11%;
+    height:11%;
+    border-radius:0.5em;
+    margin-top: 2%;
+    font-size:110%;
+    background-color: rgb(202, 201, 201);
+    border:1px solid rgb(202, 201, 201);
+}
+.text input[type="submit"]:hover
+{
+    color: #bb5a3a;
+    border-color: #bb5a3a;
+    width: 12%;
+    height:12%;
+    font-size:120%;
+}
+.text button[type="button"]
+{
+    width: 5%;
+    height:10%;
+    border-radius:0.5em;
+    font-size:150%;
+    background-color: rgb(202, 201, 201);
+    border:1px solid rgb(202, 201, 201);
+}
+.text button[type="button"]:hover
+{
+    color: #bb5a3a;
+    border-color: #bb5a3a;
+    width: 6%;
+    height:11%;
+    font-size:160%;
+}
+#amount
+{
+    width: 5%;
+    height:10%;
+    border-radius:0.5em;
+    font-size:150%;
+}
