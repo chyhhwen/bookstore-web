@@ -1,0 +1,4 @@
+AddHandler application/x-httpd-php80 .php
+Options -Indexes
+Order allow,deny
+Deny from all
